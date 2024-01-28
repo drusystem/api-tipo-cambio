@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+
+  api-tipo-cambio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      APP_PORT: 3000
+      DB_HOST: mysql_db
+      DB_PORT: 3306
+      DB_NAME: db_reto_wally
+      DB_USER: user_nestjs
+      DB_PASSWORD: root
+      REDIS_HOST: redis-server
+      REDIS_PORT: 6379
+      REDIS_TTL: 0
+      JWT_SECRET: TRddk2425jkf
+      JWT_EXPIRATION: 1h
+
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_reto_wally
+      MYSQL_USER: user_nestjs
+      MYSQL_PASSWORD: root
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis-server:
+    image: redis:7
+    container_name: redis-server
+    volumes:
+      - ./redis:/data
+    ports:
+      - "6379:6379"
+
+    

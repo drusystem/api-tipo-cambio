@@ -1,0 +1,4 @@
+node_modules
+mysql
+redis
+dist
