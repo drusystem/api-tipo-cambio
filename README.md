@@ -6,10 +6,17 @@ API para calcular el tipo de cambio utilizando las tecnologías: NestJS, Typescr
 
 ```bash
 $ docker-compose up -d
+```
+![Ejecutando docker en local](./images/docker_run.png)
+<br/>
+
+## Acceder a la documentación en local
+
+```bash
 # Escuchar en http://localhost:3000
 ```
-
 ![Documentación de la api](./images/documentacion.png)
+<br/>
 
 ## Testing de pruebas unitarias
 
